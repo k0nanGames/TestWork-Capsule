@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14d4175d58cde4c45afde38e28a00a7a, type: 3}
+  m_Name: PlayerConfig
+  m_EditorClassIdentifier: 
+  PlayerPrefab: {fileID: 156372519788880138, guid: d5987b2c4e1ddef4691aaac2e765bd59, type: 3}
+  CameraPrefab: {fileID: 8023582025788023555, guid: 4a389ac0ea2ca194dbb2e7f9855f0ed7, type: 3}
+  PlayerSpeed: 1
+  CameraSpeed: 0.1
+  CameraMinY: 2
+  CameraMaxY: 60
+  CameraOffset: {x: 0, y: 1.7, z: -4.2}
+  CameraAngle: {x: 15, y: 0, z: 0}
+  SpawnPosition: {x: -0.3709998, y: 1.3899999, z: -10.367001}
+  InverseMovement: 0
+  InverseRotationX: 1
+  InverseRotationY: 0
