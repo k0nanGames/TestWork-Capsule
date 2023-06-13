@@ -23,4 +23,4 @@ MonoBehaviour:
   SpawnPosition: {x: -0.3709998, y: 1.3899999, z: -10.367001}
   InverseMovement: 0
   InverseRotationX: 1
-  InverseRotationY: 0
+  InverseRotationY: 1
