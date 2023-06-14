@@ -55,6 +55,11 @@ namespace TestWork.Characters
         public void ResetEnemies()
         {
             _timerStarted = false;
+            
+            DataManager data = CoreGameManager.GetInstance<DataManager>();
+            
+            if (_timeAlive > data.GetBestTime())
+                data.SetBestTime(_timeAlive);
 
             if (_spawnRoutine != null)
             {
@@ -82,8 +87,12 @@ namespace TestWork.Characters
 
                     EnemyConfig enemy = _enemies[Random.Range(0, _enemies.Count)];
 
-                    Vector3 spawnPos = playerPos + enemy.SpawnRadius * Random.insideUnitSphere;
-                    spawnPos.y = playerPos.y;
+                    Vector3 spawnPos = playerPos;
+                    while(Vector3.Distance(spawnPos, playerPos) < enemy.SpawnRadius / 2f)
+                    {
+                        spawnPos = playerPos + enemy.SpawnRadius * Random.insideUnitSphere;
+                        spawnPos.y = playerPos.y;
+                    }
 
                     GameObject spawned = Instantiate(enemy.Prefab, transform);
                     spawned.transform.position = spawnPos;

@@ -84,10 +84,10 @@ namespace TestWork.Characters
             if (_config.InverseRotationY)
                 rotation.y *= -1;
 
-            _playerBody.AddForce(
-                (lookTarget * moving.y * _config.PlayerSpeed) //Move forward/backward
-                + (Vector3.Cross(lookTarget, Vector3.up) * moving.x * _config.PlayerSpeed * -1), //Move left/right
-                ForceMode.VelocityChange);
+            Vector3 moveTarget = (lookTarget * moving.y * _config.PlayerSpeed) //Move forward/backward
+                + (Vector3.Cross(lookTarget, Vector3.up) * moving.x * _config.PlayerSpeed * -1); //Move left/right
+
+            _playerBody.AddForce(moveTarget, ForceMode.VelocityChange);
 
             if(_spawnedCamera.transform.eulerAngles.x < _config.CameraMinY && rotation.y < 0)
                 rotation.y = 0;
@@ -100,7 +100,11 @@ namespace TestWork.Characters
             if(moving != Vector2.zero)
             {
                 _spawnedCamera.transform.parent = null;
-                _spawnedPlayer.transform.LookAt(_spawnedPlayer.transform.position + lookTarget * 100);
+
+                if(!_config.RotatePlayerToTarget)
+                    _spawnedPlayer.transform.LookAt(_spawnedPlayer.transform.position + lookTarget * 100);
+                else
+                    _spawnedPlayer.transform.LookAt(_spawnedPlayer.transform.position + moveTarget * 100);
 
                 _spawnedCamera.transform.parent = _spawnedPlayer.transform;
             }

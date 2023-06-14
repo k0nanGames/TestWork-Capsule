@@ -22,5 +22,6 @@ namespace TestWork.Characters
         public bool InverseMovement;
         public bool InverseRotationX;
         public bool InverseRotationY;
+        public bool RotatePlayerToTarget;
     }
 }
