@@ -18,9 +18,10 @@ MonoBehaviour:
   CameraSpeed: 0.1
   CameraMinY: 2
   CameraMaxY: 60
-  CameraOffset: {x: 0, y: 1.7, z: -4.2}
+  CameraOffset: {x: 0, y: 1.7, z: -7}
   CameraAngle: {x: 15, y: 0, z: 0}
   SpawnPosition: {x: -0.3709998, y: 1.3899999, z: -10.367001}
   InverseMovement: 0
   InverseRotationX: 1
-  InverseRotationY: 1
+  InverseRotationY: 0
+  RotatePlayerToTarget: 1

@@ -15,6 +15,7 @@ namespace TestWork.UI
         [SerializeField] private Button _quitButton;
 
         [SerializeField] private TextMeshProUGUI _text;
+        [SerializeField] private TextMeshProUGUI _bestResult;
 
         public UIViewType GetViewType()
         {
@@ -33,7 +34,13 @@ namespace TestWork.UI
         public void Show()
         {
             CoreGameManager.GetInstance<SceneController>().LoadScene("menu");
-            _text.text = "Your time is: " + (int)CoreGameManager.GetInstance<EnemyController>().GetTimeAlive();
+
+            int currentSecondsResult = (int)CoreGameManager.GetInstance<EnemyController>().GetTimeAlive();
+            int bestSecondsResult = (int)CoreGameManager.GetInstance<DataManager>().GetBestTime();
+
+            _bestResult.text = "Best time is: " + bestSecondsResult + " seconds.";
+            _text.text = "Your time is: " + currentSecondsResult + " seconds.";
+            
         }
 
         public void Hide()
